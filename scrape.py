@@ -27,5 +27,3 @@ def fetch_and_persist_article(url):
     messages.append(f"Added to Chroma DB")
     
     return messages
-    
-    
