@@ -42,11 +42,4 @@ def detect_intent_with_context(sentence):
     )
     
     response = chain.invoke({"context": docs, "sentence": sentence})
-    return {"response": response, "messages": messages}
-
-# Example usage
-test_sentence = "Where is it?"
-result = detect_intent_with_context(test_sentence)
-print(f"{result['response']}")
-for message in result["messages"]:
-    print(message)
+    return response

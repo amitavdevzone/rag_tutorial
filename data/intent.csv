@@ -1,3 +1,10 @@
 sentence,intent
 where is my order, order_status
 i want to check my order status, order_status
+do you have walking shoes, product_recommend_walking_shoes
+can you suggest running shoes, product_recommend_running_shoes
+can you suggest shoes for aged, product_recommend_walking_shoes
+can you suggest shoes for old, product_recommend_walking_shoes
+can you suggest shoes for runners, product_recommend_running_shoes
+can you suggest shoes for sports, product_recommend_sports_shoes
+i play a lot so suggest shows, product_recommend_sports_shoes
