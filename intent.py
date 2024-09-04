@@ -4,10 +4,11 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain.schema import Document
 import os
+from utils import add_chunks_to_vectorstore
 
 def ingest_csv_to_chroma(csv_path):
     messages = []
-    local_embeddings = OllamaEmbeddings(model="llama3.1:8b")
+    local_embeddings = OllamaEmbeddings(model="all-minilm:33m")
     persist_directory = "db-intents"
     
     if os.path.exists(persist_directory):
@@ -31,8 +32,7 @@ def ingest_csv_to_chroma(csv_path):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=0)
     all_splits = text_splitter.split_documents(documents)
     
-    vectorstore.add_documents(documents=all_splits)
-    messages.append("Added intent data to Chroma DB")
+    messages = add_chunks_to_vectorstore(vectorstore, all_splits)
     
     return messages
 
